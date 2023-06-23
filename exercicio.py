@@ -32,4 +32,10 @@ def listaExponenciada(lista,tamanhoLista):
     else:
         #listaTemporaria = [lista[tamanhoLista-1]]*tamanhoLista
         return listaExponenciada(lista,tamanhoLista-1) + [lista[tamanhoLista-1]]*tamanhoLista
+
+def listaExponenciada2(lista,tamanhoLista-1):
+    if tamanhoLista<len(lista):
+        return listaExponenciada(lista,tamanhoLista-1) + [lista[tamanhoLista-(tamanhoLista-1)]]*tamanhoLista
+    return []
+
 print(listaExponenciada([1,2,3,4],4))
