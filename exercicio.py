@@ -39,3 +39,25 @@ def listaExponenciada2(lista,tamanhoLista-1):
     return []
 
 print(listaExponenciada([1,2,3,4],4))
+
+"""Crie um programa que leia os arquivos pares.txt e impares.txt, e crie um só arquivo,
+paresimpares.txt com todas as linhas dos outros arquivos, de forma a  preservar a ordem numérica"""
+def concatenarArquivos(arquivo1,arquivo2):
+    
+    with open(arquivo1,'r') as arq1,open(arquivo2,'r') as arq2,open('paresImpares.txt','w') as arq3:
+        pares = []
+        impares = []
+        countPar, countImpar = 0,0
+        for linha in arq1:
+            pares.append(int(linha))
+        for linha in arq2:
+            impares.append(int(linha))
+        while countImpar<len(impares) and countPar<len(pares):
+            if impares[countImpar] < pares[countPar]:
+                arq3.write(f'{impares[countImpar]}\n')
+                countImpar+=1
+            else:
+                arq3.write(f'{pares[countPar]}\n')
+                countPar+=1
+                
+concatenarArquivos('pares.txt','impares.txt')
